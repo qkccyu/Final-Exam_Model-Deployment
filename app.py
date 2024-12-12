@@ -14,7 +14,7 @@ def load_model():
 model = load_model()
 
 st.write("""
-# Plant Leaf Detection System
+# Weather
 """)
 
 file = st.file_uploader("Choose plant photo from computer", type=["jpg", "png"])
