@@ -21,7 +21,7 @@ file = st.file_uploader("Choose plant photo from computer", type=["jpg", "png"])
 
 def import_and_predict(image_data, model):
     size = (64, 64)
-    image = ImageOps.fit(image_data, size, Image.ANTIALIAS)
+    image = ImageOps.fit(image_data, size, Image.LANCZOS)  # Updated to use LANCZOS
     img = np.asarray(image)
     if img.ndim == 2:  # Grayscale image
         img = np.stack((img,) * 3, axis=-1)  # Convert to RGB
@@ -34,7 +34,7 @@ if file is None:
 else:
     try:
         image = Image.open(file)
-        st.image(image, use_column_width=True)
+        st.image(image, use_container_width=True)  # Updated to use_container_width
         prediction = import_and_predict(image, model)
         
         class_names = [
