@@ -37,14 +37,8 @@ else:
         st.image(image, use_container_width=True)  # Updated to use_container_width
         prediction = import_and_predict(image, model)
         
-        class_names = [
-            'Rasna', 'Arive-Dantu', 'Jackfruit', 'Neem', 'Basale',
-            'Indian Mustard', 'Karanda', 'Lemon', 'Roxburgh fig', 'Peepal Tree',
-            'Hibiscus', 'Jasmine', 'Mango', 'Mint', 'Drumstick',
-            'Jamaica Cherry', 'Curry Leaf', 'Oleander', 'Parijata', 'Tulsi',
-            'Betel', 'Mexican Mint', 'Indian Beech', 'Guava', 'Pomegranate',
-            'Sandalwood', 'Jamun', 'Rose Apple', 'Crape Jasmine', 'Fenugreek'
-        ]
+        # Updated class names for weather conditions
+        class_names = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
         
         string = "OUTPUT : " + class_names[np.argmax(prediction)]
         st.success(string)
